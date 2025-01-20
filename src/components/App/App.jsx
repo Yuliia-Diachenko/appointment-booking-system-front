@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
