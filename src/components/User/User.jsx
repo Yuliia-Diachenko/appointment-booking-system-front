@@ -11,7 +11,8 @@ import css from "./User.module.css";
             <h3>{user?.name}</h3>
             <p>Email: <span>{user?.email}</span></p>
             <p>Type: <span>{Array.isArray(user.userType) ? user.userType.join(', ') : user.userType || ''}</span></p>
-            <p>Bookings: <span>{Array.isArray(user.bookings) ? user.bookings.join(', ') : user.bookings || ''}</span></p>        
+            <p>Bookings: <span>{Array.isArray(user.bookings) ? user.bookings.join(', ') : user.bookings || ''}</span></p> 
+            <button className={css.bookingBtn}>Add Booking</button>       
         </div>
     );
 }

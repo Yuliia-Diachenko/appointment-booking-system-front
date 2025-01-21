@@ -12,9 +12,11 @@ export default function UsersPage() {
         dispatch(fetchVisiableUsers());
       }, [dispatch]);
 return (
-    <div className={css.container}>
-    <h1>Users Page</h1>
-    <UsersList />
+   <>
+     <div className={css.container}>
+        <h1>Users Page</h1>            
+        <UsersList />
     </div>
+    </>
 )
 }

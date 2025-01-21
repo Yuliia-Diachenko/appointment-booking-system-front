@@ -8,3 +8,12 @@
     text-align: center;
     margin: 0 auto;
 }
+.userBtn {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin: 10px;
+}
+.usersAside {
+    display: flex;
+    
+}

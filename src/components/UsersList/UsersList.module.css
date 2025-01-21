@@ -1,0 +1,24 @@
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 1000px;
+    gap: 20px;
+    padding: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+}
+.button {
+    cursor: pointer;
+    min-height: 300px;
+    border: none; 
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+
+}

@@ -28,7 +28,6 @@ body {
   margin: 0 auto;
   justify-content: center;
   align-items: flex-start;
-
   min-width: 320px;
   min-height: 100vh;
 }

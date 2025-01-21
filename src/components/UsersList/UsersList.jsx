@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchVisiableUsers } from "../../redux/users/operations.js";
 import { selectLoading, selectError, selectVisiableUsers } from '../../redux/users/selectors.js';
 import User from "../User/User.jsx";
+import ModalWindow from "../ModalWindow/ModalWindow.jsx"
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import Loader from "../Loader/Loader";
 
@@ -12,6 +13,7 @@ export default function UsersList() {
     const isLoading = useSelector(selectLoading);
     const error = useSelector(selectError); 
     const users = useSelector(selectVisiableUsers) || [];
+    const [userId, setUserId] = useState('');
 
 console.log('Users in UsersList component:', users);
 
@@ -27,23 +29,27 @@ console.log('Users in UsersList component:', users);
         setPage(page => page + 1);
         return
       } 
-   
+      const handleClickUser = (user) => {
+        setUserId(user);  
+        console.log('user Id:', user);  
+   };
     return (
         <>       
-      <div className={css.container}>
+      <>
+      <ModalWindow userId={userId} />
       {users.data && users.data.length > 0 ? (
       <ul className={css.list}>
         {isLoading && !error && <Loader />}
         {users.data.map((user) => (
           <li key={user._id}>
-            <User user={user} />
+            <button onClick={()=>{handleClickUser(user._id)}} className={css.button}><User user={user} /></button>
           </li>
         ))}
       </ul>
     ) : (
       <p>Something went wrong...</p>
     )}
-    </div>
+    </>
       <LoadMoreBtn onClick={handleClick}/>
       </>
     )

@@ -1,0 +1,12 @@
+.user {
+    border: 1px solid #c4bfbf;
+    border-radius: 20px;
+    padding: 5px;
+    color: #c4bfbf;
+}
+.bookingBtn {
+    border: 1px solid #c4bfbf;
+    border-radius: 30px;
+    margin-bottom: 10px;
+   
+}

@@ -1,0 +1,71 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 8px;
+    color: #000;    
+}
+@media screen and (max-width: 765px) {
+    .formContainer {
+        max-width: 240px;
+  }}
+
+.error {
+    line-height: 1.29;
+    color: #d71a1a;
+    font-weight: 400;
+    font-size: 14px;    
+}
+.button {
+    border-radius: 10px;
+    border: 1px solid #000;
+    max-width: 120px;
+    max-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+}
+.formHeader {
+color: #000;
+}
+.input {
+    border-radius: 10px;
+    border: 1px solid #615f5f;
+    background-color: aliceblue;
+    height: 20px;
+    padding-left: 10px;
+    color: #000;
+}
+.blink {
+    animation-name: blinker;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
+    animation-duration: 2s;
+    -webkit-animation-name: blinker;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
+    -webkit-animation-duration: 1s;
+    color: black;
+    text-align: center;
+  }
+   
+  @keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.0; }
+  }
+   
+  @-webkit-keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.0; }
+  }
