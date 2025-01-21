@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getUsers, getUserById, addUser, deleteUser, updateUser, fetchVisiableUsers } from "./operations.js";
 
 const usersSlice = createSlice({
-    name: "data",
+    name: "users",
     initialState: {
         data: [],
         loading: false,
@@ -62,7 +62,7 @@ const usersSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         })
-        .addCase(updateUser, state => {
+        .addCase(updateUser.pending, state => {
             state.loading = true;
         })
         .addCase(updateUser.fulfilled, (state, action) => {
@@ -79,6 +79,7 @@ const usersSlice = createSlice({
             state.loading = true;
           })
         .addCase(fetchVisiableUsers.fulfilled, (state, action) => {
+          console.log('Action payload:', action.payload);
             state.data = action.payload;
             state.loading = false;
           })

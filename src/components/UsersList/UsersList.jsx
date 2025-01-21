@@ -31,10 +31,10 @@ console.log('Users in UsersList component:', users);
     return (
         <>       
       <div className={css.container}>
-      {users.length > 0 ? (
+      {users.data && users.data.length > 0 ? (
       <ul className={css.list}>
         {isLoading && !error && <Loader />}
-        {users.map((user) => (
+        {users.data.map((user) => (
           <li key={user._id}>
             <User user={user} />
           </li>
