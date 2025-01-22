@@ -32,12 +32,6 @@ export default function UserFormCreate() {
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         console.log("Submitting values:", values);
 
-        // const toArray = (input) => {
-        //     if (Array.isArray(input)) return input; 
-        //     if (typeof input === 'string' && input.trim()) return input.split(',').map(item => item.trim()); 
-        //     return []; 
-        // };
-
         const userData = {
             name: values.name,
             email: values.email,
