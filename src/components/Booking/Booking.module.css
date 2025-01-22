@@ -1,6 +1,10 @@
 .item {
     border: 1px solid #ccc;
     padding: 10px;
+    background-color: rgb(27, 27, 27);
     margin-bottom: 10px;
     border-radius: 5px;
+    width: 200px;
+    height: 300px;
+    align-items: center;
 }

@@ -43,9 +43,9 @@ export default function ModalWindow({userId}) {
     return (
         <>
         <div>
-            <button type='button' onClick={() => handleOpen('create')} className={css.button} >Create User</button>
-            <button type='button' onClick={() => handleOpen('update')} className={css.button} disabled={(!userId) ? true : false}>Update User</button>
-            <button type='button' onClick={() => handleOpen('delete')} className={css.button} disabled={(!userId) ? true : false}>Delete User</button>
+            <button type='button' onClick={() => handleOpen('create')} className={css.button} >Create</button>
+            <button type='button' onClick={() => handleOpen('update')} className={css.button} disabled={(!userId) ? true : false}>Update</button>
+            <button type='button' onClick={() => handleOpen('delete')} className={css.button} disabled={(!userId) ? true : false}>Delete</button>
         </div>
         <Modal
         open={open}

@@ -3,17 +3,20 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    width: 800px;
+    width: 1000px;
     text-align: center;
-    margin: 0 auto;
-}
-.container {
-    padding: 20px;
+margin: 0 auto;
+
 }
 
 .list {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  
 }
 
 .error {
