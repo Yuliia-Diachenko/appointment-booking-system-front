@@ -22,7 +22,7 @@ const ModalWindowBooking = ({ userId, onClose }) => {
             <Box sx={style}>
                 <div className={css.modalHeader}>
                     <h2>Booking Form</h2>
-                    <IoMdClose onClick={onClose} />
+                    <IoMdClose onClick={onClose} className={css.iconClose}/>
                 </div>
                 <BookingForm userId={userId} onClose={onClose} />
             </Box>

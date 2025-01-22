@@ -51,7 +51,7 @@ const BookingForm = ({ userId, onClose }) => {
     };
 
     return (
-        <>
+        <div>className={css.container}
         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick />
         <Formik
             initialValues={initialValues}
@@ -77,7 +77,7 @@ const BookingForm = ({ userId, onClose }) => {
                 </Form>
             )}
         </Formik>
-        </>
+        </div>
     );
 };
 
