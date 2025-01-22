@@ -16,19 +16,18 @@ const style = {
     p: 4,
 };
 
-export default function ModalWindow({ userId, onClose }) {
+const ModalWindowBooking = ({ userId, onClose }) => {
     return (
-       
         <Modal open={true} onClose={onClose}>
             <Box sx={style}>
                 <div className={css.modalHeader}>
                     <h2>Booking Form</h2>
-                     <button onClick={onClose} className={css.iconClose}>
-                            <IoMdClose />
-                     </button>
+                    <IoMdClose onClick={onClose} />
                 </div>
-                <BookingForm userId={userId} />
+                <BookingForm userId={userId} onClose={onClose} />
             </Box>
         </Modal>
     );
-}
+};
+
+export default ModalWindowBooking;

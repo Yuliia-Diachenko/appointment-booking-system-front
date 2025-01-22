@@ -2,11 +2,13 @@ import { useDispatch } from 'react-redux';
 import { useId } from "react";
 import { createBooking } from '../../redux/bookings/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 
 import css from './BookingForm.module.css';
 
-const BookingForm = ({ userId }) => {
+const BookingForm = ({ userId, onClose }) => {
     const dispatch = useDispatch();
 
     const fieldId = useId();
@@ -21,17 +23,36 @@ const BookingForm = ({ userId }) => {
         status: Yup.string().oneOf(['scheduled', 'cancelled']).required('Status is required'),
     });
 
-    const handleSubmit = (values, { setSubmitting }) => {
-        dispatch(createBooking({
-            client: userId,
-            business: userId, // Assuming the business is the same user for simplicity
-            date: values.date,
-            status: values.status,
-        }));
-        setSubmitting(false);
+    const handleSubmit = async (values, { setSubmitting }) => {
+        try {
+            const resultAction = await dispatch(createBooking({
+                client: userId,
+                business: userId,  
+                date: values.date,
+                status: values.status,
+            }));
+
+            if (createBooking.fulfilled.match(resultAction)) {
+                toast.success('Booking successfully created!');
+                console.log('New booking:', resultAction.payload);
+                onClose();
+            } else {
+                if (resultAction.payload) {
+                    toast.error(`Failed to create booking: ${resultAction.payload}`);
+                } else {
+                    toast.error(resultAction.error.message);
+                }
+            }
+        } catch (error) {
+            toast.error(`An error occurred: ${error.message}`);
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
+        <>
+        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick />
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -56,6 +77,7 @@ const BookingForm = ({ userId }) => {
                 </Form>
             )}
         </Formik>
+        </>
     );
 };
 

@@ -7,3 +7,15 @@
     text-align: center;
     margin: 0 auto;
 }
+.container {
+    padding: 20px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.error {
+    color: red;
+}
