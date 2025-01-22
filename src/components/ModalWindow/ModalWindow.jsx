@@ -55,7 +55,7 @@ export default function ModalWindow({userId}) {
         >
         <Box sx={style} className={css.container}>
         <button onClick={handleClose} className={css.iconClose}>
-        <IoMdClose className={css.iconClose} />
+        <IoMdClose />
         </button>
                     {modalType === 'create' && <UserFormCreate 
                             onStart={handleDeleteStart}
