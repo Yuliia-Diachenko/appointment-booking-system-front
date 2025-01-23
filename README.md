@@ -1,8 +1,37 @@
-# React + Vite
+# Appointment Booking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based appointment booking system that allows users to create, update, and manage appointments. The system uses Redux for state management and Formik for form handling. It also integrates with `react-toastify` for displaying notifications.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create new users
+- Update existing users
+- Display a list of users
+- Form validation using Yup
+- Notifications using `react-toastify`
+
+## Technologies Used
+
+- React
+- Redux Toolkit
+- Formik
+- Yup
+- Axios
+- React Toastify
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Yuliia-Diachenko/appointment-booking-system-front
+cd appointment-booking-system
