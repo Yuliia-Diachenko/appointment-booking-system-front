@@ -5,6 +5,8 @@ import { Formik, Form, Field } from 'formik';
 import { ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './UserFormUpdate.module.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateSchema = Yup.object().shape({
     name: Yup.string()
@@ -38,7 +40,8 @@ export default function UserFormUpdate({ userId, onSuccess, onClose }) {
             if (userId) {
                 try {
                     const response = await dispatch(getUserById(userId)).unwrap();
-                    console.log("Response data:", response);
+                    console.log("Response data:", response);   
+                    toast.success('User successfully updated!');                 
                     setInitialValues({
                         name: response.data.name || '',
                         email: response.data.email || '',
@@ -47,9 +50,11 @@ export default function UserFormUpdate({ userId, onSuccess, onClose }) {
                         bookings: response.data.bookings || "",
                     });
                     setLoading(false);
+
                 } catch (error) {
                     console.error("Error fetching user data:", error);
-                }
+                    toast.error('Failed to update user.');
+                } 
             }
         };
 
@@ -80,6 +85,7 @@ export default function UserFormUpdate({ userId, onSuccess, onClose }) {
     }
 
     return (
+        <><ToastContainer />
         <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
@@ -102,17 +108,20 @@ export default function UserFormUpdate({ userId, onSuccess, onClose }) {
                     <ErrorMessage name="ppassword" component="span" className={css.error}></ErrorMessage>
 
                     <label htmlFor={`${fieldId}-userType`} className={css.label}>User Type</label>
-                    <Field type="text" name="userType" id={`${fieldId}-userType`} className={css.input} disabled>
+                    <Field as="select"  id={`${fieldId}-userType`} name="userType" className={css.input}>
+                        <option value="client">Client</option>
+                        <option value="business">Business</option>
                     </Field>
                     <ErrorMessage name="userType" component="span" className={css.error}></ErrorMessage>
 
                     <label htmlFor={`${fieldId}-bookings`} className={css.label}>Bookings</label>
-                    <Field type="text" name="bookings" id={`${fieldId}-bookings`} className={css.input} disabled></Field>
-                    <ErrorMessage name="bookings" component="span" className={css.error} ></ErrorMessage>
+                    <Field type="text" name="bookings" id={`${fieldId}-bookings`} className={css.input} />
+                    <ErrorMessage name="bookings" component="span" className={css.error} />
 
                     <button type="submit" className={css.button} disabled={isSubmitting}>Update</button>
                 </Form>
             )}
         </Formik>
+        </>
     );
 }

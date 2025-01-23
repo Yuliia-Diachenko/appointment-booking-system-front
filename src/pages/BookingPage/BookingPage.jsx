@@ -5,7 +5,7 @@ import { selectBookings, selectLoading, selectError } from '../../redux/bookings
 import Booking from '../../components/Booking/Booking';
 import Loader from '../../components/Loader/Loader';
 import css from './BookingPage.module.css';
-import ModalWindow from '../../components/ModalWindow/ModalWindow';
+
 
 const BookingPage = () => {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const BookingPage = () => {
     return (
         <div className={css.container}>
             <h1>Bookings</h1>
-            <ModalWindow bookingId={bookingId}/>
+            
             {isLoading && <Loader />}
             {error && <p className={css.error}>Failed to load bookings.</p>}
             <ul className={css.list}>
